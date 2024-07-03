@@ -43,6 +43,12 @@ function Home() {
       setSelectedFile(null);
       setDownloadError("");
       setConvert("File Converted Successfully");
+
+      // Clear the "File Converted Successfully" message after 3 seconds
+      setTimeout(() => {
+        setConvert("");
+      }, 3000);
+
     } catch (error) {
       if (error.response && error.response.status == 400) {
         setDownloadError("Error occurred: " + error.response.data.message);
@@ -50,7 +56,7 @@ function Home() {
         setConvert("");
       }
     } finally {
-      setLoading(false); 
+      setLoading(false); // Set loading to false when conversion finishes
     }
   };
 
@@ -86,7 +92,7 @@ function Home() {
               </label>
               <button
                 onClick={handleSubmit}
-                disabled={!selectedFile || loading} 
+                disabled={!selectedFile || loading} // Disable button while loading
                 className="text-white bg-blue-500 hover:bg-blue-700 disabled:bg-gray-400 disabled:pointer-events-none duration-300 font-bold px-4 py-2 rounded-lg flex items-center"
               >
                 {loading && (

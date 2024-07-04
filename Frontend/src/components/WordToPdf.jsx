@@ -3,7 +3,7 @@ import { FaFileWord } from "react-icons/fa6";
 import axios from "axios";
 import { FaSpinner } from "react-icons/fa"; 
 
-function Home() {
+function WordToPdf() {
   const [selectedFile, setSelectedFile] = useState(null);
   const [convert, setConvert] = useState("");
   const [downloadError, setDownloadError] = useState("");
@@ -114,4 +114,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default WordToPdf;
